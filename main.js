@@ -8,7 +8,8 @@
 
 let computerChoice;
 let playerChoice;
-
+let computerChoiceInt;
+let playerChoiceInt;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -23,5 +24,27 @@ computer.textContent = "Computer score: ${computerScore}";
 output.textContent = "Have fun";
 
 
+// button logic:
+buttons.forEach((button)=>{button.addEventListener
+    ('click', ()=>{
+        playerChoice = button.id;
 
+        switch(playerChoice){
+            case "rock":
+                playerChoiceInt = 0;
+                break;
+            case "paper":
+                playerChoiceInt = 1;
+                break;
+            case "scissors":
+                playerChoiceInt = 2;
+                break;
+        }
 
+        computerChoiceInt = computerTurn(computerChoice);
+        play();
+    })
+})
+
+function computerTurn(computerChoice);
+function play();
