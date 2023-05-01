@@ -5,13 +5,12 @@
 */
 
 // global variables:
-let computerChoice = {value: ""};
+let computerChoice = {value: ""};    // initialize computer choice to a null choice 
 let playerChoice;
-let computerChoiceInt;
+let computerChoiceInt;               // integer value representing a choice for comparison
 let playerChoiceInt;
-let playerScore = 0;
-let computerScore = 0;
-
+let playerScore = 0;                 // keep track of the players' scores
+let computerScore = 0;  
 
 // constants
 const buttons = document.querySelectorAll('.btn');
@@ -21,7 +20,6 @@ const output = document.querySelector("#output");
 player.textContent = `Player score : ${playerScore}`;
 computer.textContent = `Computer score: ${computerScore}`;
 output.textContent = "First to 3 wins. Have fun!";
-
 
 // button logic:
 buttons.forEach((button)=>{button.addEventListener
@@ -41,11 +39,12 @@ buttons.forEach((button)=>{button.addEventListener
                 break;
         }
 
-        computerChoiceInt = computerTurn(computerChoice);
-        play();
+        computerChoiceInt = computerTurn(computerChoice); // generate a random choice for the computer
+        main(); // run the game
     })
 })
 
+// generate a random choice for the computer player which is determined when a button is pressed
 function computerTurn(computerChoice){
     let rand = Math.floor(Math.random() * 3); // random number from 0-2
 
@@ -63,7 +62,7 @@ function computerTurn(computerChoice){
     return rand;
 }
 
-// plays a single round of RPS and declares the winner of the round
+// plays a single round of RPS and declares the winner of the round by checking which actions were chosen
 function playRound(){
     // player chose rock:
     if(playerChoiceInt == 0){
@@ -109,15 +108,16 @@ function playRound(){
     }
 }
 
-
-function play(){
+// 
+function main(){
     output.textContent = "Choose Rock, Paper or Scissors";
+    playRound();   // play rounds until a player has a score of 3
 
-    playRound();    
     // update the score display
     player.textContent = `Player score: ${playerScore}`;
     computer.textContent = `Computer score: ${computerScore}`;
 
+    // Display results once a player reaches 3 points
     if(playerScore == 3){
         output.textContent = "You won!";
         reset();
