@@ -5,7 +5,7 @@
 */
 
 // global variables:
-let computerChoice;
+let computerChoice = {value: ""};
 let playerChoice;
 let computerChoiceInt;
 let playerChoiceInt;
@@ -48,7 +48,6 @@ buttons.forEach((button)=>{button.addEventListener
 
 function computerTurn(computerChoice){
     let rand = Math.floor(Math.random() * 3); // random number from 0-2
-    computerChoice = {value: ""}; // initialize a field that contains the computers choice (0,1,2 for r,p,s)
 
     // check which action was taken and update the field
     if(rand == 0){
